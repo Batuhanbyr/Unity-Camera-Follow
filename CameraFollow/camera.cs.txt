@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+{
+    [SerializeField] private Transform Target; // The object to follow
+    [SerializeField] private Vector3 Target_offset; // The distance to keep from the target
+
+    private void LateUpdate() // We use LateUpdate for smoothness instead of Update
+    {
+        transform.position = Vector3.Lerp(transform.position, Target.position + Target_offset, .25f); // Make the camera follow the target
+    }
+}
